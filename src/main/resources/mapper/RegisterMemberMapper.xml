@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtdmybatis-3-mapper.dtd">
+<mapper namespace="com.naver.pretoon.RegisterMember.RegisterMemberMapper">
+	<select id="selectAll" parameterType="java.lang.String" resultType="com.naver.pretoon.RegisterMember.RegisterMemberVO">
+		select * from ${webtoon_name}
+	</select>
+	<insert id="insert">
+		insert into ${webtoon_name} values ('${person_name}','${person_description}',${vote},'${person_image}')
+	</insert>
+	<update id="vote">
+		update ${webtoon_name} set vote = vote + 1 where name='${person_name}';
+	</update>
+</mapper>
