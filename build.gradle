@@ -62,6 +62,10 @@ dependencies {
 
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'	
 	runtime("com.h2database:h2")
+
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    //Allows to run spring boot app on standalone Tomcat instance
+    providedRuntime "org.springframework.boot:spring-boot-starter-tomcat:${springBootVersion}"
 	
 	//compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.0.RELEASE'
 	implementation('org.springframework.boot:spring-boot-starter-web')
