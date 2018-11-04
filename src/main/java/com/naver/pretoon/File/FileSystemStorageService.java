@@ -26,8 +26,7 @@ public class FileSystemStorageService implements StorageService {
     @Autowired
     public FileSystemStorageService(StorageProperties properties) throws IOException {
         //this.rootLocation = Paths.get(properties.getLocation());
-    	ClassPathResource cpr = new ClassPathResource("static");
-    	this.rootLocation = Paths.get(cpr.getPath());
+    	this.rootLocation = Paths.get("/home/yongjun/apache-tomcat-7.0.91/webapps/pretoon/WEB-INF/classes/static/img/upload");
     }
 
     @Override
