@@ -21,7 +21,7 @@ import com.naver.pretoon.File.StorageProperties;
 import com.naver.pretoon.File.StorageService;
 
 @Configuration
-@EnableAutoConfiguration
+//@EnableAutoConfiguration
 @SpringBootApplication
 @MapperScan(value= {"com.naver.pretoon.RegisterMember"})
 @EnableConfigurationProperties(StorageProperties.class)
