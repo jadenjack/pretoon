@@ -84,6 +84,7 @@ public class FileSystemStorageService implements StorageService {
 
     @Override
     public void init() {
+    	System.out.println("init");
 //        try {
 //            Files.createDirectory(rootLocation);
 //        }catch(FileAlreadyExistsException e) {
