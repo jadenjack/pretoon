@@ -9,10 +9,8 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,9 +22,8 @@ public class FileSystemStorageService implements StorageService {
     private final Path rootLocation;
 
     @Autowired
-    public FileSystemStorageService(StorageProperties properties) throws IOException {
-        //this.rootLocation = Paths.get(properties.getLocation());
-    	this.rootLocation = Paths.get("/home/yongjun/apache-tomcat-7.0.91/webapps/pretoon/WEB-INF/classes/static/img/upload");
+    public FileSystemStorageService(StorageProperties properties) {
+        this.rootLocation = Paths.get(properties.getLocation());
     }
 
     @Override
@@ -87,13 +84,13 @@ public class FileSystemStorageService implements StorageService {
 
     @Override
     public void init() {
-        try {
-            Files.createDirectory(rootLocation);
-        }catch(FileAlreadyExistsException e) {
-        	System.out.println("rootLocation already exist.");
-        }
-        catch (IOException e) {
-            throw new StorageException("Could not initialize storage", e);
-        }
+//        try {
+//            Files.createDirectory(rootLocation);
+//        }catch(FileAlreadyExistsException e) {
+//        	System.out.println("rootLocation already exist.");
+//        }
+//        catch (IOException e) {
+//            throw new StorageException("Could not initialize storage", e);
+//        }
     }
 }
