@@ -1,5 +1,6 @@
 package com.naver.pretoon.File;
 
+import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
@@ -18,7 +19,10 @@ public class StorageProperties {
 	public Path getLocation() {
 		try {
 			URI uri = this.getClass().getResource("/").toURI();
-			return Paths.get(uri);
+			File classFile = new File(uri);
+			File imagePath = new File(classFile,"static/img/upload");
+			return imagePath.toPath();
+			//return Paths.get(uri);
 		} catch (URISyntaxException e) {
 			return null;
 		}
