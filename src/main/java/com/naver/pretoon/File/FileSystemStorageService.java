@@ -84,13 +84,13 @@ public class FileSystemStorageService implements StorageService {
 
     @Override
     public void init() {
-        try {
-            Files.createDirectory(rootLocation);
-        }catch(FileAlreadyExistsException e) {
-        	System.out.println("rootLocation already exist.");
-        }
-        catch (IOException e) {
-            throw new StorageException("Could not initialize storage", e);
-        }
+//        try {
+//            Files.createDirectory(rootLocation);
+//        }catch(FileAlreadyExistsException e) {
+//        	System.out.println("rootLocation already exist.");
+//        }
+//        catch (IOException e) {
+//            throw new StorageException("Could not initialize storage", e);
+//        }
     }
 }
