@@ -20,7 +20,7 @@
     		<li>
     			<div class="inner">
     				<a href="${webtoon_name}/members">
-	    				<img src="/img/${webtoon_name }.jpg" width="320" height="320">
+	    				<img src="./img/${webtoon_name }.jpg" width="320" height="320">
 	    				<span class="webtoon_name">${webtoon_name}</span>
     				</a>
     			</div>

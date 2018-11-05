@@ -29,7 +29,7 @@
 					<li>
 						<div class="inner">
 						<a>
-							<img src="/img/upload/${list.image}" class="person_image"/>
+							<img src="./img/upload/${list.image}" class="person_image"/>
 							<p class="title_wrap">
 								<span class="title"><c:out value="${list.name}" /></span>
 							</p>
