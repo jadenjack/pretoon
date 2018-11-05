@@ -2,12 +2,11 @@ package com.naver.pretoon.File;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
-
-import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -26,9 +25,7 @@ public class FileSystemStorageService implements StorageService {
 
     @Autowired
     public FileSystemStorageService(StorageProperties properties) {
-        //this.rootLocation = Paths.get(properties.getLocation());
     	String locationStr = properties.getLocation();
-    	
     	this.rootLocation = Paths.get(locationStr);
     }
 
@@ -90,13 +87,13 @@ public class FileSystemStorageService implements StorageService {
 
     @Override
     public void init() {
-//        try {
-//            Files.createDirectory(rootLocation);
-//        }catch(FileAlreadyExistsException e) {
-//        	System.out.println("rootLocation already exist.");
-//        }
-//        catch (IOException e) {
-//            throw new StorageException("Could not initialize storage", e);
-//        }
+        try {
+            Files.createDirectory(rootLocation);
+        }catch(FileAlreadyExistsException e) {
+        	System.out.println("rootLocation already exist.");
+        }
+        catch (IOException e) {
+            throw new StorageException("Could not initialize storage", e);
+        }
     }
 }

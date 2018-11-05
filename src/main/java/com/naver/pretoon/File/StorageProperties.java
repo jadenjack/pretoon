@@ -1,22 +1,16 @@
 package com.naver.pretoon.File;
 
-import javax.servlet.ServletContext;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties("storage")
 public class StorageProperties {
 	
-	private String location = "src/main/resources/static/img/upload";
-	//private String location = "img/upload";
-	
-	@Autowired
-    private ServletContext servletContext;
+	//private String location = "src/main/resources/static/img/upload";
+	private String ROOT_PATH =this.getClass().getResource("/").getPath(); 
+	private String location = ROOT_PATH + "static/img/upload";
 	
 	public String getLocation() {
-		return servletContext.getContextPath() + "/img/upload";
-		//return location;
+		return location;
 	}
 	
 	public void setLocation(String location) {
