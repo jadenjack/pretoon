@@ -20,16 +20,15 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class FileSystemStorageService implements StorageService {
 
-	@Autowired
-    private ServletContext servletContext;
+
 	
     private final Path rootLocation;
 
     @Autowired
     public FileSystemStorageService(StorageProperties properties) {
         //this.rootLocation = Paths.get(properties.getLocation());
-    	String locationStr = servletContext.getContextPath() + "/img/upload";
-    	System.out.println(locationStr);
+    	String locationStr = properties.getLocation();
+    	
     	this.rootLocation = Paths.get(locationStr);
     }
 
