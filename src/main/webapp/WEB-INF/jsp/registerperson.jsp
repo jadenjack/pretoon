@@ -8,7 +8,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>${webtoon_name}</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
   </head>
   <body>
     <h2>${webtoon_name} 후보 등록</h2>

@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>${webtoon_name}</title>
-<link rel="stylesheet" type="text/css" href="/css/vote.css" />
+<link rel="stylesheet" type="text/css" href="./css/vote.css" />
 </head>
 <body>
 
