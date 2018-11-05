@@ -16,7 +16,7 @@
 		<h2>${webtoon_name}후보</h2>
 			<div class="button_group_wrap">
 				<div class="button_group">
-					<form id="voteForm" action="./${webtoon_name}/voteprocessing" method="POST">
+					<form id="voteForm" action="./voteprocessing" method="POST">
 						<input class="member_register button" type="submit" value="선택 완료" />
 					</form>
 				</div>
