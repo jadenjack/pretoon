@@ -8,7 +8,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>툰통령을 뽑아보자.</title>
-    <link rel="stylesheet" type="text/css" href="./css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/index.css"/>
   </head>
   <body>
     <div class="webtoon_list_wrap">
@@ -19,8 +19,8 @@
     	</c:if>
     		<li>
     			<div class="inner">
-    				<a href="${webtoon_name}/members">
-	    				<img src="./img/${webtoon_name }.jpg" width="320" height="320">
+    				<a href="./${webtoon_name}/members">
+	    				<img src="./resources/img/${webtoon_name }.jpg" width="320" height="320">
 	    				<span class="webtoon_name">${webtoon_name}</span>
     				</a>
     			</div>

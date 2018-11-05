@@ -25,6 +25,7 @@ apply plugin: 'war'
 
 war {
     baseName = 'pretoon'
+    archiveName = 'ROOT.war'
 }
 
 group = 'com.example'

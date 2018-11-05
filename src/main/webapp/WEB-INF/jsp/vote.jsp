@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>${webtoon_name}</title>
-<link rel="stylesheet" type="text/css" href="./css/vote.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/vote.css" />
 </head>
 <body>
 
@@ -16,7 +16,7 @@
 		<h2>${webtoon_name}후보</h2>
 			<div class="button_group_wrap">
 				<div class="button_group">
-					<form id="voteForm" action="/${webtoon_name}/voteprocessing" method="POST">
+					<form id="voteForm" action="./${webtoon_name}/voteprocessing" method="POST">
 						<input class="member_register button" type="submit" value="선택 완료" />
 					</form>
 				</div>
@@ -29,7 +29,7 @@
 					<li>
 						<div class="inner">
 						<a>
-							<img src="./img/upload/${list.image}" class="person_image"/>
+							<img src="/resources/img/upload/${list.image}" class="person_image"/>
 							<p class="title_wrap">
 								<span class="title"><c:out value="${list.name}" /></span>
 							</p>

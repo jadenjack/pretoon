@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>${webtoon_name}</title>
-<link rel="stylesheet" type="text/css" href="./css/members.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/members.css" />
 </head>
 <body>
 
@@ -16,12 +16,12 @@
 		<h2>${webtoon_name}후보</h2>
 			<div class="button_group_wrap">
 				<div class="button_group">
-					<form action="/${webtoon_name}/register">
+					<form action="./${webtoon_name}/register">
 						<input class="member_register button" type="submit" value="후보 등록" />
 					</form>
-					<form action="/${webtoon_name}/vote">
+					<form action="./${webtoon_name}/vote">
 						<input class="member_vote button" type="submit" value="투표하기" />
-					</form>
+					</form>d
 				</div>
 			</div>
 			<div class="member_group">
@@ -32,7 +32,7 @@
 					<li>
 						<div class="inner">
 						<a> <!-- TODO:img insert --> 
-							<img src="./img/upload/${list.image}" class="person_image"/>
+							<img src="/resources/img/upload/${list.image}" class="person_image"/>
 							<p class="title_wrap">
 								<span class="title"><c:out value="${list.name}" /></span>
 							</p>

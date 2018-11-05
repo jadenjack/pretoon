@@ -8,12 +8,12 @@
   <head>
     <meta charset="UTF-8" />
     <title>${webtoon_name}</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/style.css"/>
   </head>
   <body>
     <h2>${webtoon_name} 후보 등록</h2>
     
-    <form action="registerprocessing" method="post" enctype="multipart/form-data">
+    <form action="./registerprocessing" method="post" enctype="multipart/form-data">
     	<input type="hidden" name="webtoon_name" value="${webtoon_name}"/>
 	    <h2>이름</h2>
 	    <input type="text" name="person_name"/>
