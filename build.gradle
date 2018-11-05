@@ -65,14 +65,11 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
 	compile group: 'org.apache.tomcat', name: 'tomcat-jdbc', version: '9.0.12'
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-util
-	compile group: 'org.apache.tomcat', name: 'tomcat-util', version: '8.0.0-RC1'
-	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-juli
-compile group: 'org.apache.tomcat', name: 'tomcat-juli', version: '9.0.12'
-	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-coyote
-compile group: 'org.apache.tomcat', name: 'tomcat-coyote', version: '8.0.8'
-	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api
-compile group: 'org.apache.tomcat', name: 'tomcat-servlet-api', version: '9.0.12'
-	
+	compile group: 'org.apache.tomcat', name: 'tomcat-util', version: '8.0.33-RC1'
+		// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-juli
+	compile group: 'org.apache.tomcat', name: 'tomcat-juli', version: '9.0.12'
+		// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api
+	compile group: 'org.apache.tomcat', name: 'tomcat-servlet-api', version: '9.0.12'
 
     compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     //Allows to run spring boot app on standalone Tomcat instance
