@@ -2,11 +2,12 @@ package com.naver.pretoon.File;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
+
+import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -19,11 +20,17 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class FileSystemStorageService implements StorageService {
 
+	@Autowired
+    private ServletContext servletContext;
+	
     private final Path rootLocation;
 
     @Autowired
     public FileSystemStorageService(StorageProperties properties) {
-        this.rootLocation = Paths.get(properties.getLocation());
+        //this.rootLocation = Paths.get(properties.getLocation());
+    	String locationStr = servletContext.getContextPath() + "/img/upload";
+    	System.out.println(locationStr);
+    	this.rootLocation = Paths.get(locationStr);
     }
 
     @Override
