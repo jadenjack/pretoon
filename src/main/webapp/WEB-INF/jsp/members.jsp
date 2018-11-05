@@ -16,10 +16,10 @@
 		<h2>${webtoon_name}후보</h2>
 			<div class="button_group_wrap">
 				<div class="button_group">
-					<form action="./${webtoon_name}/register">
+					<form action="./register">
 						<input class="member_register button" type="submit" value="후보 등록" />
 					</form>
-					<form action="./${webtoon_name}/vote">
+					<form action="./vote">
 						<input class="member_vote button" type="submit" value="투표하기" />
 					</form>d
 				</div>
