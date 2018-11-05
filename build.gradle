@@ -69,6 +69,7 @@ dependencies {
 		// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-juli
 	compile group: 'org.apache.tomcat', name: 'tomcat-juli', version: '9.0.12'
 		// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api
+	providedRuntime "org.apache.tomcat:tomcat-util"
 	compile group: 'org.apache.tomcat', name: 'tomcat-servlet-api', version: '9.0.12'
 
     compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
