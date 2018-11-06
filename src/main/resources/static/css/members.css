@@ -139,3 +139,7 @@ li{
 	width:100%;
 	height:320px;
 }
+
+.member_alredady_vote{
+    cursor: default;
+}

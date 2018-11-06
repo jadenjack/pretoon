@@ -11,7 +11,6 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/members.css" />
 </head>
 <body>
-	${alreadyVote }
 	<div class="member_list_wrap">
 		<h2>${webtoon_name}후보</h2>
 			<div class="button_group_wrap">
@@ -22,7 +21,9 @@
 					
 					<c:choose>
 						<c:when test="${alreadyVote}">
+							<form action="javascript:void(0);">
 								<input class="member_alredady_vote button" type="submit" value="투표완료"/>
+							</form>
 						</c:when>
 						<c:otherwise>
 							<form action="./vote">
