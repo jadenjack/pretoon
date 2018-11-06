@@ -2,7 +2,12 @@ package com.naver.pretoon.File;
 
 public class StorageFileNotFoundException extends StorageException {
 
-    public StorageFileNotFoundException(String message) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -752146831301319136L;
+
+	public StorageFileNotFoundException(String message) {
         super(message);
     }
 

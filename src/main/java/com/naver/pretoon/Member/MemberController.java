@@ -1,6 +1,5 @@
-package com.naver.pretoon.RegisterMember;
+package com.naver.pretoon.Member;
 
-import java.security.SecureRandom;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,30 +17,29 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.naver.pretoon.CONSTANT_STRINGS;
 import com.naver.pretoon.File.FileUploadController;
 import com.naver.pretoon.File.StorageService;
+import com.naver.pretoon.Util.CONSTANT_STRINGS;
+import com.naver.pretoon.Util.RandomStringGenerator;
 
 @Controller
 @RequestMapping("/{webtoon}")
-public class RegisterMemberController {
+public class MemberController {
 	
 	@Autowired
-	private RegisterMemberMapper mapper;
+	private MemberMapper mapper;
 	@Autowired
 	private final StorageService storageService;
 	
-	static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	static SecureRandom rnd = new SecureRandom();
 	
 	@Autowired
-    public RegisterMemberController(StorageService storageService) {
+    public MemberController(StorageService storageService) {
         this.storageService = storageService;
     }
 	
 	@RequestMapping("/members")
 	public String main(ModelMap model, @PathVariable("webtoon") String webtoon, HttpServletRequest request) throws Exception{
-		List<RegisterMemberVO> list = mapper.selectAll(webtoon);
+		List<MemberVO> list = mapper.selectAll(webtoon);
 		String requestIP = request.getRemoteAddr();
 		
 		boolean alreadyVote = mapper.voteCheck(CONSTANT_STRINGS.VOTECHECK_TABLE, requestIP, webtoon);
@@ -65,7 +63,7 @@ public class RegisterMemberController {
 	@RequestMapping(value="/selectAll")
 	public String selectAll(@PathVariable("webtoon") String webtoon) throws Exception {
 		System.out.println("webtoon : " + webtoon);
-		List<RegisterMemberVO> list = mapper.selectAll(webtoon);
+		List<MemberVO> list = mapper.selectAll(webtoon);
 //		for(int i=0;i<list.size();i++) {
 //			RegisterMemberVO next = list.get(i);
 //			System.out.println("name : " + next.getName() + "/Description : " + next.getDescription());
@@ -81,7 +79,7 @@ public class RegisterMemberController {
 		String personName = request.getParameter("person_name");
 		String personDescription = request.getParameter("person_description");
 		String personImageName = imageFile.getOriginalFilename();
-		String randomString = getRandomString(10) + "_";
+		String randomString = RandomStringGenerator.getRandomString(10) + "_";
 		String randomFileName = randomString+personImageName;
 		int vote = 0;
 		mapper.insert(webtoonName,personName,personDescription,vote,randomFileName);
@@ -95,7 +93,7 @@ public class RegisterMemberController {
 	@RequestMapping(value="/vote")
 	public String votePerson(ModelMap model, @PathVariable("webtoon") String webtoon) throws Exception {
 		model.addAttribute("webtoon_name",webtoon);
-		List<RegisterMemberVO> list = mapper.selectAll(webtoon);
+		List<MemberVO> list = mapper.selectAll(webtoon);
 		model.put("list",list);
 		return "vote";
 	}
@@ -109,11 +107,5 @@ public class RegisterMemberController {
 		return "redirect:members";
 	}
 	
-	public String getRandomString(int len) {
-		StringBuilder sb = new StringBuilder(len);
-		for (int i = 0; i < len; i++)
-			sb.append(AB.charAt(rnd.nextInt(AB.length())));
-		return sb.toString();
-	}
 	
 }

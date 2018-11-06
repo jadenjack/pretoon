@@ -1,4 +1,4 @@
-package com.naver.pretoon.RegisterMember;
+package com.naver.pretoon.Member;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 @Mapper
-public interface RegisterMemberMapper {
-	public List<RegisterMemberVO> selectAll(@Param("webtoon_name")String webtoon_name) throws Exception;
+public interface MemberMapper {
+	public List<MemberVO> selectAll(@Param("webtoon_name")String webtoon_name) throws Exception;
 	public void insert(@Param("webtoon_name")String webtoon_name,
 			@Param("person_name")String person_name,
 			@Param("person_description")String person_description,

@@ -1,12 +1,12 @@
-package com.naver.pretoon.RegisterMember;
+package com.naver.pretoon.Member;
 
-public class RegisterMemberVO {
+public class MemberVO {
 	private String name;
 	private String description;
 	private int vote;
 	private String image;
 	
-	public RegisterMemberVO(String name, String description, int vote, String image) {
+	public MemberVO(String name, String description, int vote, String image) {
 		this.name = name;
 		this.description = description;
 		this.vote = vote;

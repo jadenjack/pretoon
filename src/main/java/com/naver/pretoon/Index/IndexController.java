@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.naver.pretoon.CONSTANT_STRINGS;
+import com.naver.pretoon.Util.CONSTANT_STRINGS;
 
 @Controller
 public class IndexController {
