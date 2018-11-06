@@ -6,12 +6,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 
-import org.mockito.internal.stubbing.ConsecutiveStubbing;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mysql.jdbc.Constants;
 import com.naver.pretoon.CONSTANT_STRINGS;
 
 @Controller
