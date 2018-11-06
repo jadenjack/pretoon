@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.naver.pretoon.CONSTANT_STRINGS;
 import com.naver.pretoon.File.FileUploadController;
 import com.naver.pretoon.File.StorageService;
 
@@ -39,10 +40,14 @@ public class RegisterMemberController {
     }
 	
 	@RequestMapping("/members")
-	public String main(ModelMap model, @PathVariable("webtoon") String webtoon) throws Exception{
-		model.addAttribute("webtoon_name",webtoon);
+	public String main(ModelMap model, @PathVariable("webtoon") String webtoon, HttpServletRequest request) throws Exception{
 		List<RegisterMemberVO> list = mapper.selectAll(webtoon);
+		String requestIP = request.getRemoteAddr();
+		
+		boolean alreadyVote = mapper.voteCheck(CONSTANT_STRINGS.VOTECHECK_TABLE, requestIP, webtoon);
+		model.addAttribute("webtoon_name",webtoon);
 		model.put("list",list);
+		model.addAttribute("alreadyVote",alreadyVote);
 		return "members";
 	}
 	
@@ -79,8 +84,8 @@ public class RegisterMemberController {
 		String randomString = getRandomString(10) + "_";
 		String randomFileName = randomString+personImageName;
 		int vote = 0;
-		
 		mapper.insert(webtoonName,personName,personDescription,vote,randomFileName);
+		
 		storageService.store(imageFile,randomFileName);
         redirectAttributes.addFlashAttribute("message", "You successfully uploaded " + imageFile.getOriginalFilename() + "!");
         
@@ -97,7 +102,10 @@ public class RegisterMemberController {
 	@RequestMapping(value="/voteprocessing", method=RequestMethod.POST)
 	public String votePerson(@PathVariable("webtoon") String webtoon, HttpServletRequest request) {
 		String voted = request.getParameter("select");
+		String ip = request.getRemoteAddr();
+		
 		mapper.vote(webtoon, voted);
+		mapper.voteInsert(CONSTANT_STRINGS.VOTECHECK_TABLE, ip, webtoon);
 		return "redirect:members";
 	}
 	

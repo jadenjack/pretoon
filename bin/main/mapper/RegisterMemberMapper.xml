@@ -5,9 +5,15 @@
 		select * from ${webtoon_name}
 	</select>
 	<insert id="insert">
-		insert into ${webtoon_name} values ('${person_name}','${person_description}',${vote},'${person_image}')
+		insert into ${webtoon_name} values ('${person_name}','${person_description}',${vote},'${person_image}');
 	</insert>
 	<update id="vote">
 		update ${webtoon_name} set vote = vote + 1 where name='${person_name}';
 	</update>
+	<select id="voteCheck" resultType = 'java.lang.Boolean'>
+		select exists(select 1 from ${vote_table} where ip='${ip}' and webtoon_name='${webtoon_name}');
+	</select>
+	<insert id="voteInsert">
+		insert into ${vote_table} values ('${ip}','${webtoon_name}',${vote},'${person_image}');
+	</insert>
 </mapper>
