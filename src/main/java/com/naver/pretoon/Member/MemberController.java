@@ -97,12 +97,14 @@ public class MemberController {
 		model.put("list",list);
 		return "vote";
 	}
+	// /vote에서 선택(select)된 인물의 정보를 받아서 투표수+1 한다.
+	// (IP,웹툰이름)을 쌍으로 votecheck 테이블에 기록한다.
 	@RequestMapping(value="/voteprocessing", method=RequestMethod.POST)
 	public String votePerson(@PathVariable("webtoon") String webtoon, HttpServletRequest request) {
-		String voted = request.getParameter("select");
+		String votedPerson = request.getParameter("select");
 		String ip = request.getRemoteAddr();
 		
-		mapper.vote(webtoon, voted);
+		mapper.vote(webtoon, votedPerson);
 		mapper.voteInsert(CONSTANT_STRINGS.VOTECHECK_TABLE, ip, webtoon);
 		return "redirect:members";
 	}
