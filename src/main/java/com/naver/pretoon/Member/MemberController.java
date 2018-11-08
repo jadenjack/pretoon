@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -105,8 +106,15 @@ public class MemberController {
 		String votedPerson = request.getParameter("select");
 		String ip = request.getRemoteAddr();
 		
-		mapper.vote(webtoon, votedPerson);
-		mapper.voteInsert(CONSTANT_STRINGS.VOTECHECK_TABLE, ip, webtoon);
+		boolean alreadyVote = mapper.voteCheck(CONSTANT_STRINGS.VOTECHECK_TABLE, ip, webtoon);
+		if(!alreadyVote) {
+			try {
+			mapper.voteInsert(CONSTANT_STRINGS.VOTECHECK_TABLE, ip, webtoon);			
+			mapper.vote(webtoon, votedPerson);
+			}catch(DuplicateKeyException e) {
+				System.out.println(ip + " tries to cheating");
+			}
+		}
 		return "redirect:members";
 	}
 	
