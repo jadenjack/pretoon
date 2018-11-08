@@ -8,6 +8,8 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface MemberMapper {
 	public List<MemberVO> selectAll(@Param("webtoon_name")String webtoon_name) throws Exception;
+	public List<VoteVO> selectVoteData(@Param("webtoon_name")String webtoon_name);
+	
 	public void insert(@Param("webtoon_name")String webtoon_name,
 			@Param("person_name")String person_name,
 			@Param("person_description")String person_description,

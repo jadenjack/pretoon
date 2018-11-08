@@ -18,7 +18,9 @@
 					<form action="./register">
 						<input class="member_register button" type="submit" value="후보 등록" />
 					</form>
-					
+					<form action="./graph">
+						<input class="member_graph button" type="submit" value="그래프 보기" />
+					</form>
 					<c:choose>
 						<c:when test="${alreadyVote}">
 							<form action="javascript:void(0);">

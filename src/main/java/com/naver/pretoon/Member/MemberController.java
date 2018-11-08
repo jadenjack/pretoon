@@ -1,5 +1,7 @@
 package com.naver.pretoon.Member;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,9 +19,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.reflect.TypeToken;
 import com.naver.pretoon.File.FileUploadController;
 import com.naver.pretoon.File.StorageService;
 import com.naver.pretoon.Util.CONSTANT_STRINGS;
+import com.naver.pretoon.Util.JsonConvertor;
 import com.naver.pretoon.Util.RandomStringGenerator;
 
 @Controller
@@ -30,8 +36,7 @@ public class MemberController {
 	private MemberMapper mapper;
 	@Autowired
 	private final StorageService storageService;
-	
-	
+		
 	@Autowired
     public MemberController(StorageService storageService) {
         this.storageService = storageService;
@@ -60,16 +65,12 @@ public class MemberController {
 		
 		return "registerperson";
 	}
-	@RequestMapping(value="/selectAll")
-	public String selectAll(@PathVariable("webtoon") String webtoon) throws Exception {
-		System.out.println("webtoon : " + webtoon);
-		List<MemberVO> list = mapper.selectAll(webtoon);
-//		for(int i=0;i<list.size();i++) {
-//			RegisterMemberVO next = list.get(i);
-//			System.out.println("name : " + next.getName() + "/Description : " + next.getDescription());
-//		}
-		return "index";
-	}
+	
+//	for(int i=0;i<list.size();i++) {
+//	RegisterMemberVO next = list.get(i);
+//	System.out.println("name : " + next.getName() + "/Description : " + next.getDescription());
+//}
+
 	
 	@RequestMapping(value="/registerprocessing", method=RequestMethod.POST)
 	public String registerPerson(@RequestParam("person_image") MultipartFile imageFile,

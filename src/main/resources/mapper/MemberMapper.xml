@@ -4,6 +4,9 @@
 	<select id="selectAll" parameterType="java.lang.String" resultType="com.naver.pretoon.Member.MemberVO">
 		select * from ${webtoon_name}
 	</select>
+	<select id="selectVoteData" parameterType="java.lang.String" resultType="com.naver.pretoon.Member.VoteVO">
+		select name,vote from ${webtoon_name}
+	</select>
 	<insert id="insert">
 		insert into ${webtoon_name} values ('${person_name}','${person_description}',${vote},'${person_image}');
 	</insert>

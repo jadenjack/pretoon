@@ -65,17 +65,18 @@ dependencies {
 	runtime("com.h2database:h2")
 	// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc
 	compile group: 'org.apache.tomcat', name: 'tomcat-jdbc', version: '9.0.12'
-	
 		// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-juli
 	compile group: 'org.apache.tomcat', name: 'tomcat-juli', version: '9.0.12'
 		// https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api
-	
-	
 	compile group: 'org.apache.tomcat', name: 'tomcat-servlet-api', version: '9.0.12'
 
     compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     //Allows to run spring boot app on standalone Tomcat instance
     providedRuntime "org.springframework.boot:spring-boot-starter-tomcat:${springBootVersion}"
+    
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+	compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
+    
 	
 	//compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.0.RELEASE'
 	implementation('org.springframework.boot:spring-boot-starter-web')
